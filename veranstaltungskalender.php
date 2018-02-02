@@ -2,7 +2,7 @@
 /* 
  * Plugin Name: "Alter Bahnhof" - Veranstaltungsplugin
  * Descrtiption: Fügt die Veranstaltungskalenderfunktion hinzu. Es wird Advanced Custom Fields Pro benötigt.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: woodpresser
  */
 
@@ -41,18 +41,22 @@ function the_albh_kalender_content() {
 	$info_group = get_sub_field('informationen');
 	//get parent_post
 	$pID = $info_group['beitrag_verlinken']->ID;
-	
+	//get parent post status
+	print_r($info_group);
+
+	$pStatus = $info_group['beitrag_verlinken']->post_status;
+
 	?>
 	<tr>
 		<td class="albh_datum">
-			<?php if( !empty( $pID ) ) { ?>	
+			<?php if( !empty( $pID ) && $pStatus == 'publish' ) { ?>	
 				<h5><a href="<?php the_permalink( $pID ) ?>"><?php echo $info_group['datum']; ?></a></h5>
 			<?php } else { ?>
 				<h5><?php echo $info_group['datum']; ?></h5>
 			<?php } ?>			
 		</td>
 		<td class="albh_meta">
-			<?php if( !empty( $pID ) ) { ?>	
+			<?php if( !empty( $pID ) && $pStatus == 'publish' ) { ?>	
 				<h5><a href="<?php the_permalink( $pID ) ?>"><?php echo $info_group['bezeichnung']; ?></a></h5>
 			<?php } else { ?>
 				<h5><?php echo $info_group['bezeichnung']; ?></h5>
