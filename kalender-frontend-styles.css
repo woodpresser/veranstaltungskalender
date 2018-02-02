@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30.01.2018, 13:08:19
+    Author     : Roehe
+*/
+.albh_datum, albh_meta {
+    vertical-align: top;
+}
+.albh_datum {
+    width: 30%;
+    min-width: 25%;
+}
